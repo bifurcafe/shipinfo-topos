@@ -1,7 +1,29 @@
 {
   "name": "@shipinfo/sdk",
   "version": "0.1.1",
-  "description": "ShipInfo agent-native API SDK",
+  "description": "ShipInfo maritime analytics SDK for AI agents",
+  "keywords": [
+    "maritime",
+    "shipping",
+    "ais",
+    "vessel-tracking",
+    "port-congestion",
+    "sts",
+    "route-stress",
+    "agent-native",
+    "ai-agent-api",
+    "x402",
+    "pay-what-you-want"
+  ],
+  "homepage": "https://shipinfo.net/topos/for-agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bifurcafe/shipinfo-topos.git",
+    "directory": "packages/sdk-js"
+  },
+  "bugs": {
+    "url": "https://github.com/bifurcafe/shipinfo-topos/issues"
+  },
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",

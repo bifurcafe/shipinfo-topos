@@ -52,5 +52,22 @@
     "openapi_url": "https://shipinfo.net/topos/api/.well-known/openapi.json",
     "schemas_index_url": "https://shipinfo.net/topos/api/.well-known/schemas/index.json"
   },
-  "tags": ["maritime", "shipping", "ais", "sts", "logistics"]
+  "tags": [
+    "maritime",
+    "shipping",
+    "ais",
+    "vessel-tracking",
+    "port-congestion",
+    "sts-intelligence",
+    "route-stress",
+    "maritime-analytics",
+    "agent-native-api",
+    "ai-agent",
+    "agent-exchange",
+    "machine-readable-data",
+    "x402",
+    "pay-what-you-want",
+    "fair-value-pricing",
+    "logistics"
+  ]
 }

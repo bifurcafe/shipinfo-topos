@@ -1,7 +1,27 @@
 {
   "name": "shipinfo-mcp-server",
   "version": "0.1.0",
-  "description": "MCP wrapper for ShipInfo API",
+  "description": "MCP wrapper for ShipInfo maritime analytics API",
+  "keywords": [
+    "mcp",
+    "webmcp",
+    "maritime",
+    "shipping",
+    "ais",
+    "agent-native",
+    "ai-agent-api",
+    "vessel-tracking",
+    "x402"
+  ],
+  "homepage": "https://shipinfo.net/topos/for-agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bifurcafe/shipinfo-topos.git",
+    "directory": "packages/mcp-server"
+  },
+  "bugs": {
+    "url": "https://github.com/bifurcafe/shipinfo-topos/issues"
+  },
   "type": "module",
   "scripts": {
     "start": "node src/server.js"
