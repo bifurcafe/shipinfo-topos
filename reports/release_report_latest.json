@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-02-26T16:56:49Z",
+  "base_url": "https://shipinfo.net/topos/api",
+  "shipinfo_api_base": "https://shipinfo.net/topos/api",
+  "status": "ok",
+  "checks": [
+    {"name":"syntax_js","status":"ok","message":""},
+    {"name":"syntax_mcp","status":"ok","message":""},
+    {"name":"syntax_py","status":"ok","message":""},
+    {"name":"registry_links","status":"ok","message":""},
+    {"name":"registry_capability_alignment","status":"ok","message":""},
+    {"name":"e2e_unauth","status":"ok","message":""},
+    {"name":"x402_smoke","status":"ok","message":""},
+    {"name":"mcp_smoke","status":"ok","message":""},
+    {"name":"mcp_contract_matrix","status":"ok","message":""},
+    {"name":"agent_platform_smoke","status":"ok","message":""},
+    {"name":"e2e_auth_fixture","status":"ok","message":""},
+    {"name":"release_artifact_paths","status":"ok","message":""},
+    {"name":"release_artifact_paths_json","status":"ok","message":""},
+    {"name":"release_artifact_chain","status":"ok","message":""}
+  ]
+}

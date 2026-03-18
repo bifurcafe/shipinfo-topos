@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["port_id"],"properties":{"port_id":{"type":"integer"},"range":{"type":"string"},"vessel_type":{"type":"string"}}}

@@ -1,0 +1,136 @@
+name: verify-agent-kit
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+  push:
+    paths:
+      - 'shipinfo-agent-kit/**'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run release gate
+        run: |
+          bash shipinfo-agent-kit/scripts/release_gate.sh
+        env:
+          BASE_URL: https://shipinfo.net/topos/api
+          SHIPINFO_API_BASE: https://shipinfo.net/topos/api
+          SHIPINFO_API_KEY: ${{ secrets.SHIPINFO_API_KEY }}
+      - name: Upload release report
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipinfo-agent-kit-release-report
+          path: shipinfo-agent-kit/reports/release_report_latest.json
+      - name: Upload checksum manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipinfo-agent-kit-checksums
+          path: shipinfo-agent-kit/reports/checksums_sha256.txt
+      - name: Upload release manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipinfo-agent-kit-release-manifest
+          path: shipinfo-agent-kit/reports/release_manifest.json
+      - name: Generate scheduled ops snapshot
+        if: github.event_name == 'schedule'
+        run: |
+          bash scripts/agents/ops_health_snapshot.sh
+          bash scripts/agents/validate_ops_health_snapshot.sh
+      - name: Upload scheduled ops snapshot
+        if: github.event_name == 'schedule'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shipinfo-agent-kit-ops-health-snapshot
+          path: logs/agent_platform_health_snapshot.json
+      - name: Publish verification summary
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import hashlib
+          import sys
+          from pathlib import Path
+
+          report = Path("shipinfo-agent-kit/reports/release_report_latest.json")
+          manifest = Path("shipinfo-agent-kit/reports/release_manifest.json")
+          checksums = Path("shipinfo-agent-kit/reports/checksums_sha256.txt")
+          lines = ["## Agent Kit Verification Summary", ""]
+          errors = []
+
+          if report.exists():
+              data = json.loads(report.read_text())
+              lines.append(f"- Overall status: **{data.get('status', 'unknown')}**")
+              lines.append(f"- Base URL: `{data.get('base_url', '')}`")
+              lines.append("- Checks:")
+              check_names = set()
+              for c in data.get("checks", []):
+                  check_names.add(c.get("name", ""))
+                  lines.append(f"  - `{c.get('name', '')}`: `{c.get('status', '')}`")
+              if "release_artifact_paths" in check_names or "release_artifact_paths_json" in check_names:
+                  lines.append("- Artifact helper checks present: `release_artifact_paths`, `release_artifact_paths_json`")
+              if "release_artifact_chain" in check_names:
+                  lines.append("- Artifact helper chain check present: `release_artifact_chain`")
+          else:
+              lines.append("- release report missing")
+              errors.append("release report missing")
+
+          lines.append("")
+          lines.append("### Artifacts")
+          lines.append("- `shipinfo-agent-kit-release-report`")
+          lines.append("- `shipinfo-agent-kit-checksums`")
+          lines.append("- `shipinfo-agent-kit-release-manifest`")
+
+          if manifest.exists():
+              m = json.loads(manifest.read_text())
+              lines.append("")
+              lines.append(f"- Registry version: `{m.get('registry_version', '')}`")
+              lines.append("- Manifest integrity checks:")
+
+              artifacts = m.get("artifacts", {})
+              expected_keys = ("release_report", "checksums_manifest", "registry_entry")
+              for key in expected_keys:
+                  info = artifacts.get(key) or {}
+                  path = info.get("path")
+                  expected_sha = info.get("sha256")
+                  if not path or not expected_sha:
+                      lines.append(f"  - `{key}`: `fail` (missing path/sha256)")
+                      errors.append(f"{key} missing path/sha256")
+                      continue
+                  p = Path(path)
+                  if not p.exists():
+                      lines.append(f"  - `{key}`: `fail` (file not found)")
+                      errors.append(f"{key} file not found: {path}")
+                      continue
+                  got_sha = hashlib.sha256(p.read_bytes()).hexdigest()
+                  if got_sha != expected_sha:
+                      lines.append(f"  - `{key}`: `fail` (sha mismatch)")
+                      errors.append(f"{key} sha mismatch")
+                  else:
+                      lines.append(f"  - `{key}`: `ok`")
+          else:
+              lines.append("")
+              lines.append("- Manifest integrity checks: `fail` (manifest missing)")
+              errors.append("release manifest missing")
+
+          if not checksums.exists():
+              errors.append("checksums manifest missing")
+
+          if errors:
+              lines.append("")
+              lines.append("### Errors")
+              for e in errors:
+                  lines.append(f"- {e}")
+
+          Path(os.environ["GITHUB_STEP_SUMMARY"]).write_text("\n".join(lines) + "\n")
+          if errors:
+              sys.exit(1)
+          PY

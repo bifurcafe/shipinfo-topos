@@ -1,0 +1,19 @@
+{
+  "generated_at_utc": "2026-02-26T16:56:49Z",
+  "registry_version": "1.2.0",
+  "artifacts": {
+    "release_report": {
+      "path": "shipinfo-agent-kit/reports/release_report_latest.json",
+      "sha256": "638ef6c66b0e61b0061c36ab2698d1a85e65dcd482c575bf9d74ce0e96ddece7"
+    },
+    "checksums_manifest": {
+      "path": "shipinfo-agent-kit/reports/checksums_sha256.txt",
+      "sha256": "31952bd511476976a27d0329aefd32986f5efe2ee20c03e27508fbb3891505fe"
+    },
+    "registry_entry": {
+      "path": "shipinfo-agent-kit/registry/shipinfo-analytics.json",
+      "sha256": "fa76b319fb999dbfc0bc08604ea020c9f9ca473f060e11e2e877372d61704cac"
+    }
+  },
+  "signature_mode": "checksum_manifest"
+}

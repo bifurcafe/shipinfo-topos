@@ -1,0 +1,176 @@
+{
+  "schemas": [
+    {
+      "schema_key": "agent.envelope.ping",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.envelope.ping"
+    },
+    {
+      "schema_key": "agent.register.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.register.input"
+    },
+    {
+      "schema_key": "agent.billing.submit_tx.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.submit_tx.input"
+    },
+    {
+      "schema_key": "agent.billing.submit_tx.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.submit_tx.output"
+    },
+    {
+      "schema_key": "agent.billing.status",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.status"
+    },
+    {
+      "schema_key": "agent.billing.ops",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.ops"
+    },
+    {
+      "schema_key": "agent.billing.ops.summary",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.ops.summary"
+    },
+    {
+      "schema_key": "agent.billing.pricing",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.pricing"
+    },
+    {
+      "schema_key": "agent.billing.instructions",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.instructions"
+    },
+    {
+      "schema_key": "agent.billing.x402.requirements",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.x402.requirements"
+    },
+    {
+      "schema_key": "agent.billing.x402.verify.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.x402.verify.input"
+    },
+    {
+      "schema_key": "agent.billing.x402.verify.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.billing.x402.verify.output"
+    },
+    {
+      "schema_key": "agent.feedback.correction.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.feedback.correction.input"
+    },
+    {
+      "schema_key": "agent.feedback.request_data.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.feedback.request_data.input"
+    },
+    {
+      "schema_key": "agent.feedback.propose_metric.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.feedback.propose_metric.input"
+    },
+    {
+      "schema_key": "agent.exchange.claim.create.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.claim.create.input"
+    },
+    {
+      "schema_key": "agent.capabilities.list",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.capabilities.list"
+    },
+    {
+      "schema_key": "agent.quality.snapshot",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.quality.snapshot"
+    },
+    {
+      "schema_key": "agent.policy",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.policy"
+    },
+    {
+      "schema_key": "agent.register.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.register.output"
+    },
+    {
+      "schema_key": "agent.profile",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.profile"
+    },
+    {
+      "schema_key": "agent.vessel.lookup.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.lookup.input"
+    },
+    {
+      "schema_key": "agent.vessel.lookup.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.lookup.output"
+    },
+    {
+      "schema_key": "agent.vessel.search.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.search.input"
+    },
+    {
+      "schema_key": "agent.vessel.search.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.search.output"
+    },
+    {
+      "schema_key": "agent.port.search.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.search.input"
+    },
+    {
+      "schema_key": "agent.port.search.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.search.output"
+    },
+    {
+      "schema_key": "agent.port.congestion.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.congestion.input"
+    },
+    {
+      "schema_key": "agent.port.congestion.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.congestion.output"
+    },
+    {
+      "schema_key": "agent.feedback.ticket.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.feedback.ticket.output"
+    },
+    {
+      "schema_key": "agent.feedback.ticket.status",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.feedback.ticket.status"
+    },
+    {
+      "schema_key": "agent.exchange.claims.list.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.claims.list.input"
+    },
+    {
+      "schema_key": "agent.exchange.claims.list.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.claims.list.output"
+    },
+    {
+      "schema_key": "agent.exchange.claim.create.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.claim.create.output"
+    },
+    {
+      "schema_key": "agent.exchange.claim.get.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.claim.get.output"
+    },
+    {
+      "schema_key": "agent.exchange.vote.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.vote.input"
+    },
+    {
+      "schema_key": "agent.exchange.vote.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.vote.output"
+    },
+    {
+      "schema_key": "agent.exchange.reputation.me.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.reputation.me.output"
+    },
+    {
+      "schema_key": "agent.exchange.leaderboard.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.exchange.leaderboard.output"
+    },
+    {
+      "schema_key": "agent.sts.events.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.sts.events.input"
+    },
+    {
+      "schema_key": "agent.sts.events.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.sts.events.output"
+    },
+    {
+      "schema_key": "agent.metrics.route_stress.input",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.metrics.route_stress.input"
+    },
+    {
+      "schema_key": "agent.metrics.route_stress.output",
+      "url": "https://shipinfo.net/topos/api/v1/schemas/agent.metrics.route_stress.output"
+    }
+  ]
+}

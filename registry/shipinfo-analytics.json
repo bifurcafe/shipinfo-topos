@@ -1,0 +1,56 @@
+{
+  "id": "shipinfo-analytics",
+  "name": "ShipInfo Analytics",
+  "version": "1.2.0",
+  "description": "Machine-first maritime analytics API for AI agents",
+  "author": "ShipInfo.net",
+  "license": "Proprietary",
+  "server": { "base_url": "https://shipinfo.net/topos/api" },
+  "schema_hosting": {
+    "mode": "api_native",
+    "base": "https://shipinfo.net/topos/api/v1/schemas/"
+  },
+  "tools": [
+    {
+      "key": "vessel_lookup",
+      "method": "GET",
+      "path": "/v1/vessels/lookup",
+      "input_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.lookup.input",
+      "output_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.vessel.lookup.output"
+    },
+    {
+      "key": "port_congestion",
+      "method": "GET",
+      "path": "/v1/ports/{port_id}/congestion",
+      "input_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.congestion.input",
+      "output_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.port.congestion.output"
+    },
+    {
+      "key": "sts_events",
+      "method": "GET",
+      "path": "/v1/sts/events",
+      "input_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.sts.events.input",
+      "output_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.sts.events.output"
+    },
+    {
+      "key": "route_stress_index",
+      "method": "GET",
+      "path": "/v1/metrics/route_stress_index",
+      "input_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.metrics.route_stress.input",
+      "output_schema_url": "https://shipinfo.net/topos/api/v1/schemas/agent.metrics.route_stress.output"
+    }
+  ],
+  "quality_signals": {
+    "quality_url": "https://shipinfo.net/topos/api/v1/quality",
+    "policy_url": "https://shipinfo.net/topos/api/v1/policy",
+    "billing_pricing_url": "https://shipinfo.net/topos/api/v1/billing/pricing",
+    "x402_requirements_url": "https://shipinfo.net/topos/api/v1/billing/x402/requirements",
+    "x402_verify_url": "https://shipinfo.net/topos/api/v1/billing/x402/verify"
+  },
+  "discoverability": {
+    "manifest_url": "https://shipinfo.net/topos/api/.well-known/agent-manifest.json",
+    "openapi_url": "https://shipinfo.net/topos/api/.well-known/openapi.json",
+    "schemas_index_url": "https://shipinfo.net/topos/api/.well-known/schemas/index.json"
+  },
+  "tags": ["maritime", "shipping", "ais", "sts", "logistics"]
+}

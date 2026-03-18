@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shipinfo.net/topos/api/v1/schemas/envelope",
+  "type": "object",
+  "required": ["status", "request_id", "as_of", "freshness_seconds", "cost_units", "policy", "confidence", "quality_flags", "data", "errors"],
+  "properties": {
+    "status": { "type": "string", "enum": ["ok", "error"] },
+    "request_id": { "type": "string" },
+    "as_of": { "type": "string" },
+    "freshness_seconds": { "type": "integer", "minimum": 0 },
+    "cost_units": { "type": "number", "minimum": 0 },
+    "policy": { "type": "object" },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "quality_flags": { "type": "array", "items": { "type": "string" } },
+    "data": {},
+    "errors": { "type": "array" }
+  }
+}

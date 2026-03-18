@@ -1,0 +1,9 @@
+{
+  "name": "shipinfo-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP wrapper for ShipInfo API",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}

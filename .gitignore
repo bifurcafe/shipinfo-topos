@@ -1,0 +1,17 @@
+# local secrets
+release_package/PUBLISH_INPUTS.env
+
+# build artifacts
+release_package/dist/
+packages/sdk-py/dist/
+packages/sdk-py/build/
+packages/sdk-py/*.egg-info/
+
+# runtime cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# misc
+.DS_Store
